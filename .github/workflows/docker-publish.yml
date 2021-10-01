@@ -87,5 +87,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: latest
+          tags: blindlight/hyperion_ng:latest
           labels: ${{ steps.meta.outputs.labels }}
