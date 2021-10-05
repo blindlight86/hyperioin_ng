@@ -11,8 +11,8 @@ RUN apt -y install curl wget dialog apt-utils libx11-6 libusb-1.0-0 libexpat1 li
 
 # RUN rm Hyperion-*-Linux-x86_64.deb
 
-RUN wget -qO- https://apt.hyperion-project.org/hyperion.pub.key | sudo gpg --dearmor -o /usr/share/keyrings/hyperion.pub.gpg
-RUN echo "deb [signed-by=/usr/share/keyrings/hyperion.pub.gpg] https://apt.hyperion-project.org/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hyperion.list
-RUN sudo apt-get update && sudo apt-get install hyperion
+RUN wget -qO- https://apt.hyperion-project.org/hyperion.pub.key | gpg --dearmor -o /usr/share/keyrings/hyperion.pub.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/hyperion.pub.gpg] https://apt.hyperion-project.org/ $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hyperion.list
+RUN apt-get update && sudo apt-get install hyperion
 
 CMD ["hyperiond"]
